@@ -1,0 +1,155 @@
+@font-face {
+    font-family: "Pretendard-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/Pretendard-Bold.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Pretendard-SemiBold";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/pretendard_semibold.ttf") format("opentype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    background-color: #292929;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 5em;
+    background: #3B3B3B;
+}
+
+.autoH {
+    width: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.logo {
+    width: 41px;
+    height: 41px;
+    padding: 10px;
+}
+
+.weather {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.body {
+    padding-top: 5em;
+    width: 80%;
+    position: absolute;
+    flex-direction: row;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
+}
+.refresh {
+    display: flex;
+    float: right;
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+}
+
+.main {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    gap: 117px;
+    width: 80%;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.temperature {
+    position: absolute;
+    left: 8px;
+    top: 314px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6em;
+
+    color: #FFFFFF;
+
+}
+.state {
+    position: absolute;
+    left: 8px;
+    top: 415px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3em;
+
+    color: #FFFFFF;
+
+}
+.allDay {
+    position: absolute;
+    left: 8px;
+    top: 485px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.2em;
+
+    color: #FFFFFF;
+
+}
+
+.product-canvas {
+  width: 10em;
+  height: 10em;
+  border-radius: 0px;
+  margin-bottom:20px
+
+}
+
+.btn {
+    position: absolute;
+    width: 180px;
+    height: 61px;
+    top: 750px;
+    align-items: center;
+    border: none;
+
+    background: #FFFFFF;
+    border-radius: 100px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height */
+
+    text-align: center;
+}
