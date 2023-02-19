@@ -1,21 +1,44 @@
 import './index.css';
 import React, {Suspense, useRef} from 'react';
-import {Canvas} from '@react-three/fiber'
-import {OrbitControls, PerspectiveCamera, useGLTF} from '@react-three/drei';
-import './Untitled.gltf';
+import {Canvas } from '@react-three/fiber'
+import {PerspectiveCamera, useGLTF, OrbitControls} from '@react-three/drei';
+
 
 function Model(props) {
-  const { nodes, materials } = useGLTF('./Untitled.gltf')
-  return (
-    <group {...props} dispose={null}>
-      <PerspectiveCamera makeDefault={false} far={10000000000} near={0.01} fov={53.13} position={[-15.84, 34.4, 323.93]} rotation={[-0.09, 0, 0]} />
-      <mesh geometry={nodes.Polygon.geometry} material={nodes.Polygon.material} position={[0, -17.38, 0]} />
-    </group>
-  );
+    const {nodes} = useGLTF("/Untitled.gltf");
+    const ref = useRef()
+    return (
+      
+        <group {...props} dispose={null}>
+      <ambientLight intensity={0.5} />
+      <directionalLight
+        ref={ref}
+        intensity={0.6}
+        position={[0, 2, 2]}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        castShadow
+      />
+            <PerspectiveCamera
+                makeDefault={false}
+                far={10000}
+                near={10}
+                fov={53.1}
+                position={[-90, -90, 323.9]}
+                rotation={[-0.1, 0, 0]}/>
+            <mesh
+                geometry={nodes.Polygon.geometry}
+                material={nodes.Polygon.material}
+                position={[-0, -0.0, -0]}/>
+        </group>
+    );
 }
 
+useGLTF.preload("/Untitled.gltf");
+
+
+
 function App() {
-    const ref = useRef()
     return (
         <div className="App">
             <div className="header">
@@ -31,20 +54,23 @@ function App() {
                     <h2 className="temperature">12°C</h2>
                     <h3 className="state">Partly{" "}Cloudy</h3>
                     <h4 className="allDay">Day 14° • Night 4°</h4>
-                    <div className ="product-canvas">
-                    <Canvas pixelRatio={[1, 2]} camera={{ position: [-10, 15, 15], fov: 50 }}>
-                      <Suspense fallback = {null}>
-                        <ambientLight intensity={1} />
-                        <Model /> 
-                      </Suspense>
-                      <OrbitControls />
-                    </Canvas>
-                    </div>
-                    <button className="btn">Wed 14</button>
-                </div>
-            </div>
-        </div>
+                    <div className="product-canvas">
+                        <Canvas size={[`1000px`,`2000px`]}
+                        style={{width:`100%`, height: `500px`, position: `relative`, alignitems: `center`}}> <Suspense
+                        fallback={null}>
+                          <ambientLight/>
+                          <directionalLight />
+                          
+                        <Model scale ={[0.025,0.025,0.025]}/>
+                        <OrbitControls rotateSpeed={0.4}  />
+                        {/*<Environment preset="sunset" background blur ={0.5} />*/}
+                        </Suspense>
+                        </Canvas>
+                        </div>
+                        <button className="btn">Wed 14</button>
+                        </div>
+                        </div>
+                        </div>
     );
 }
-
 export default App;

@@ -116,6 +116,7 @@
     position: absolute;
     left: 8px;
     top: 485px;
+    
 
     font-family: 'Pretendard';
     font-style: normal;
@@ -127,8 +128,12 @@
 }
 
 .product-canvas {
-  width: 10em;
-  height: 10em;
+  width: 30em;
+  height: 20em;
+  padding-top: 5em;
+  
+  padding-left: 400px;
+  left: 500px;
   border-radius: 0px;
   margin-bottom:20px
 
